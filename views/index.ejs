@@ -250,10 +250,18 @@
           </div>
           <p class="base--p output--more-science">
             <$= __("label-whatelse") $>
+            <br>
+            New Save View
+             <br>
+              <a class="base--a" onclick="postSaveRequest()" href="javascript:void(0);">
+                <$= __("button-save") $>
+              </a>.
+              <br>
               <br>
               <a class="base--a" onclick="postSunburstRequest()" href="javascript:void(0);">
                 <$= __("button-sunburst") $>
               </a>.
+              <br>
               <br>
               <a class="base--a" href="https://cloud.ibm.com/docs/services/personality-insights/science.html#science" target="_blank">
                 <$= __("button-science") $>
@@ -362,6 +370,7 @@
   <script type="text/javascript" src="vendor/personality-trait-names/dist/index.js"></script>
   <script type="text/javascript" src="vendor/personality-consumption-preferences/dist/index.js"></script>
   <script type="text/javascript" src="js/sunburst.js"></script>
+  <script type="text/javascript" src="js/save.js"></script>
 
   <script type="text/javascript" src="js/demo.js"></script>
   <script type="text/javascript" src="js/consumption-preferences-likely-sort.js"></script>

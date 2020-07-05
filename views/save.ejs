@@ -1,0 +1,45 @@
+<$ include partials/header $>
+<script>
+	function download(content, fileName, contentType) {
+		  const a = document.createElement("a");
+		  const file = new Blob([content], { type: contentType });
+		  a.href = URL.createObjectURL(file);
+		  a.download = fileName;
+		  a.click();
+	}
+
+	function onDownload(){
+		//download(JSON.stringify(profile), "profile.json", "text/plain");
+		download(JSON.stringify(profile, null, 2), "profile.json", "text/plain");
+	}
+</script>
+  <div class="_demo--container">
+    <div class="_content input">
+      <h2 class="base--h2">
+        <$= __("save-title") $>
+      </h2>
+      <br>
+        <button onclick='onDownload()'> <$= __("button-save") $> </button>
+      <br>
+       <textarea id="profileResults" name="profile2" rows="40" cols="80">
+       </textarea>
+       <br>
+      
+      <p class="base--p">
+        <a class="base--a" href='/'>
+           &lt; <$= __("save-back") $>
+        </a>
+      </p>
+    </div>
+  </div>
+
+  
+ <script>
+    var profile = <$- save.profile $>;
+    var t = document.getElementById('profileResults');
+    t.value = JSON.stringify( profile ,null, 2);
+    t.style.backgroundColor = 'lightgray';
+  </script>
+  
+</body>
+</html>

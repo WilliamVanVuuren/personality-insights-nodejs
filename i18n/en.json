@@ -81,6 +81,7 @@
 	"label-json": "JSON",
 	"label-whatelse": "What else do these results say?",
 	"button-sunburst": "View personality traits in sunburst visualization",
+	"button-save": "Save profile",
 	"button-science": "See the science behind the service",
 	"tooltip-not-available": "Tooltip not available",
 	"page-title-pi": "Personality Insights",
@@ -101,6 +102,9 @@
 	"header-forkdeploy": "Fork and Deploy on IBM Cloud",
 	"sunburst-title": "Sunburst Chart Visualization",
 	"sunburst-back": "Go back",
+	"save-title": "Save Profiles",
+	"save-back": "Go back",
+	"save-profile-button": "Save profile",
 	"error-400-minimum": "We need at least 100 words for analysis. Watson doesn't like to judge a book by its cover.",
 	"error-401-credentials": "There was a problem processing the personality. Please check your credentials.",
 	"error-500-params": "Please input some text to analyze.",
@@ -125,5 +129,9 @@
 	"twitterlang-ja": "JA",
 	"twitterlang-ko": "KO",
 	" text-placeholder ": " text-placeholder ",
-	"lang-korean": "lang-korean"
+	"lang-korean": "lang-korean",
+	"save-profle": "save-profle",
+	"save-profile": "save-profile",
+	"ave-profile-button": "ave-profile-button",
+	"Save-profile-button": "Save-profile-button"
 }

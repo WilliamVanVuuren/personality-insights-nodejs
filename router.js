@@ -68,6 +68,13 @@ module.exports = (app) => {
       sunburst: pick(req.body, ['profile', 'image'])
     })
   );
+  
+  // save profile
+  app.post('/save', (req, res) =>
+    res.render('save', {
+      save: pick(req.body, ['profile'])
+    })
+  );
 
   // terms of use
   app.get('/terms-of-use', (req, res) => res.render('terms-of-use'));
