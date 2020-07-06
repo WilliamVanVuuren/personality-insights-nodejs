@@ -29,10 +29,10 @@ require('./router')(app);
 require('./config/error-handler')(app);
 
 // logger
-//require('./config/logger')(app);
+const { log } = require('./config/logger');
 
 // db
-require('./config/db')(app);
+const { db } = require('./config/db');
 
 const Cloudant = require('@cloudant/cloudant');
 const config = require('config');
