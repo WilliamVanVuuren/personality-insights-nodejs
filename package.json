@@ -43,10 +43,10 @@
   },
   "dependencies": {
     "@cloudant/cloudant": "^4.1.1",
-    "config": "^1.30.0",
-    "bunyan": "^1.8.12",
     "body-parser": "^1.19.0",
+    "bunyan": "^1.8.12",
     "cfenv": "^1.2.2",
+    "config": "^1.30.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "ejs": "^2.7.1",

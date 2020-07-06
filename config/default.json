@@ -13,12 +13,13 @@
   "nlu_username": "",
   "nlu_password": "",
   "nlu_iam_apikey": "",
-  "nlu_url": "https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/b3bcdcff-6163-4999-807a-980961c10d0d",
+  "nlu_url": "",
 
   "database": {
     "enabled": true,
     "iam_username": "",
     "iam_apikey": "",
-    "db_name": "profiles_db"
+    "db_name": ""
   }
 }
+

@@ -34,6 +34,8 @@ const { log } = require('./config/logger');
 // db
 const { db } = require('./config/db');
 
+//app.use(express.bodyParser());
+
 app.post('/upload', function (req, res) {
        console.log(req.body);
        console.log(req.body.user);
