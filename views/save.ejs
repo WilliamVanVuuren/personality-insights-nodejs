@@ -1,5 +1,4 @@
 <$ include partials/header $>
-<script type="module" src="js/upload.js"></script>
 <script>
 	function download(content, fileName, contentType) {
 		  const a = document.createElement("a");
@@ -18,10 +17,16 @@
 <script>
 	
 	function upload(user, userID, profile) {
-		  db.addUsage(user, userID, profile);
-		  //var test = db.add(3,6);
-		
-	}
+		  //db.addUsage(user, userID, profile);
+		  //svar test = db.add(3,6);
+		$.ajax({
+     		type: 'POST',
+     		dataType: 'xml/html/script/json',
+     		data: JSON.stringify({user, userID, profile}),  
+     		contentType: 'application/json',
+     		url: '/upload'
+	});
+	}	
 
 	function onUpload(){
 		upload("ivanp@us.ibm.com","D-1234", JSON.stringify(profile) );
