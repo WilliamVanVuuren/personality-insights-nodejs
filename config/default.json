@@ -12,13 +12,13 @@
 
   "nlu_username": "",
   "nlu_password": "",
-  "nlu_iam_apikey": "",
-  "nlu_url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
+  "nlu_iam_apikey": "dGsJ6kZ3pFIR-Kg9G4QoGochlHgfhrEHicGL-MiqmxM6",
+  "nlu_url": "https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/b3bcdcff-6163-4999-807a-980961c10d0d",
 
   "database": {
     "enabled": true,
     "iam_username": "ffceedce-f88e-4e9a-9c48-bedf0367deea-bluemix",
     "iam_apikey": "bsFHVaWis6r4Dh1jpGmJDbFF-7vBLiHh1TrhwwKd5pfs",
-    "db_name": "Cloudant-call4code"
+    "db_name": "profiles_db"
   }
 }

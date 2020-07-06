@@ -19,17 +19,12 @@
 
 // Local
 //const { db } = require('../libraries/db');
-//const { db } = require('../js/db');
+const { db } = require('../config/db');
 
-'use strict';
-//const { db } = require('js/db');
-
-import { add } from '../js/db.js';
-
+//import { add } from '../js/db.js';
 //import { db } from '../js/db.js';
-//const { db } = require('../js/db');
 
-console.log("*****   loaded add")
+
 
 // Submit usage to the database
 //db.addUsage(params.user_name, params.channel_name, params.text.length);

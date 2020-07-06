@@ -17,6 +17,8 @@
 const express = require('express');
 const app = express();
 
+
+
 // Bootstrap application settings
 require('./config/express')(app);
 
@@ -30,7 +32,7 @@ require('./config/error-handler')(app);
 //require('./config/logger')(app);
 
 // db
-//require('./config/db')(app , db);
+require('./config/db')(app);
 
 const Cloudant = require('@cloudant/cloudant');
 const config = require('config');

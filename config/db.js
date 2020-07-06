@@ -7,10 +7,9 @@ const Cloudant = require('@cloudant/cloudant');
 const config = require('config');
 
 // Local
-//const { log } = require('js/logger');
 const { log } = require('./logger');
 
-console.log("******   Loaded db from config")
+console.log("****   Loading db from config ...")
 
 // Implementation //////////////////////////////////////////////////////////////
 
@@ -108,14 +107,19 @@ class DisabledDB {
 
 // Exports /////////////////////////////////////////////////////////////////////
 
- module.exports.db = new UsageDB();
+// module.exports.db = new UsageDB();
  
- /*
+
 if (config.get('database.enabled')) {
+  console.log("**** Running with usage logging ENABLED")
+  console.log("with db: " + config.get('database.db_name') )
   log.info('Running with usage logging ENABLED');
+  
   module.exports.db = new UsageDB();
+  
+  
 } else {
   log.info('Running with usage logging DISABLED');
   module.exports.db = new DisabledDB();
 }
-*/
+

@@ -18,15 +18,14 @@
 <script>
 	
 	function upload(user, userID, profile) {
-		  //db.addUsage(user, userID, profile);
-		  var test = db.add(3,6);
-		  console.log("..... test= " + test);
+		  db.addUsage(user, userID, profile);
+		  //var test = db.add(3,6);
+		
 	}
 
 	function onUpload(){
 		upload("ivanp@us.ibm.com","D-1234", JSON.stringify(profile) );
 		//db.addUsage(user, userID, profile);
-		//upload(JSON.stringify(profile, null, 2), "profile.json", "text/plain");
 	}
 </script>
   <div class="_demo--container">
@@ -38,7 +37,7 @@
         <button onclick='onDownload()'> <$= __("button-save") $> </button>
       <br>
       <br>
-        <button onclick='onUpload()'> upload profile </button>
+        <button onclick='onUpload()'> Upload profile to DB </button>
       <br>
        <textarea id="profileResults" name="profile2" rows="40" cols="80">
        </textarea>
