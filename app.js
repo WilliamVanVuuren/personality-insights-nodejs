@@ -26,4 +26,13 @@ require('./router')(app);
 // error-handler settings
 require('./config/error-handler')(app);
 
+// logger
+//require('./config/logger')(app);
+
+// db
+//require('./config/db')(app , db);
+
+const Cloudant = require('@cloudant/cloudant');
+const config = require('config');
+
 module.exports = app;

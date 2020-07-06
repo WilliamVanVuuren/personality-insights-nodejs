@@ -1,4 +1,5 @@
 <$ include partials/header $>
+<script type="module" src="js/upload.js"></script>
 <script>
 	function download(content, fileName, contentType) {
 		  const a = document.createElement("a");
@@ -13,6 +14,21 @@
 		download(JSON.stringify(profile, null, 2), "profile.json", "text/plain");
 	}
 </script>
+
+<script>
+	
+	function upload(user, userID, profile) {
+		  //db.addUsage(user, userID, profile);
+		  var test = db.add(3,6);
+		  console.log("..... test= " + test);
+	}
+
+	function onUpload(){
+		upload("ivanp@us.ibm.com","D-1234", JSON.stringify(profile) );
+		//db.addUsage(user, userID, profile);
+		//upload(JSON.stringify(profile, null, 2), "profile.json", "text/plain");
+	}
+</script>
   <div class="_demo--container">
     <div class="_content input">
       <h2 class="base--h2">
@@ -20,6 +36,9 @@
       </h2>
       <br>
         <button onclick='onDownload()'> <$= __("button-save") $> </button>
+      <br>
+      <br>
+        <button onclick='onUpload()'> upload profile </button>
       <br>
        <textarea id="profileResults" name="profile2" rows="40" cols="80">
        </textarea>
