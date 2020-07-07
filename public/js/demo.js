@@ -778,7 +778,10 @@ $(document).ready(function() {
   }
 
   function countWords(str) {
-    return str.split(' ').length;
+  	//return str.split(' ').length;
+	if (typeof str !== 'undefined'){
+		return str.split(' ').length;
+	}
   }
 
   function updateWordCount() {

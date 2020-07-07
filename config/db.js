@@ -44,14 +44,19 @@ class UsageDB {
     });
   }
 
-  async addUsage(userName, channelName, textLength) {
-    log.debug(`Adding usage for ${userName} in channel ${channelName}`);
-
+  //async addUsage(userName, channelName, textLength) {
+  async addUsage(userID, profile) {
+    console.log("adding profile ***************")
+    //log.debug(`Adding usage for ${userName} in channel ${channelName}`);
+	log.debug(`Adding profile for ${userID}`);
+	
     // Make sure the database is ready
     await this.dbReady;
 
     // Index the record by the username
-    const recordId = userName;
+    //const recordId = userName;
+    const recordId = userID;
+    const status = "active";
 
     // Look up to see if this user has an existing record
     let queryResults;
@@ -86,11 +91,15 @@ class UsageDB {
       record.requests = [];
     }
 
+	console.log("writing  profile ***************")
     // Add this request to the record
     record.requests.push({
-      user_name: userName,
-      channel_name: channelName,
-      text_length: textLength,
+      //user_name: userName,
+      //channel_name: channelName,
+      //text_length: textLength,
+      profile: profile,
+      status: status,
+      user_id: userID,
       date: new Date(),
     });
 
