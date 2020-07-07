@@ -99,11 +99,15 @@ module.exports = (app) => {
        db.addUsage(req.body.userID, req.body.ageGroup, req.body.location, req.body.profile);
          // Redirect
        
-       res.render('results' , {} );
+       res.redirect("/results");
   });
   // terms of use
   app.get('/terms-of-use', (req, res) => res.render('terms-of-use'));
   
   //upload
-  app.get('/results', (req, res) => res.render('results'));
-};
+  app.get('/results', (req, res) => {
+    console.log("... during results() ");
+	return res.render('results')
+	//return res.status(200).send('redirect')
+  });
+}

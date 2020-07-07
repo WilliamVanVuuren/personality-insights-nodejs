@@ -21,9 +21,21 @@
      		dataType: 'json',
      		data: JSON.stringify({userID, ageGroup, location, profile}),  
      		contentType: 'application/json',
-     		url: '/upload'
+     		url: '/upload',
+			success: function (response) {
+  			//	$parents.html(response).fadeIn();
+  				//console.log("at upload again")
+  				if(response.result == 'redirect') {
+  					//console.log("at upload redirect")
+  					window.location.replace("http://www.ibm.com");
+  					//location.replace("http://localhost:3000/results");
+  				}
+			}
 		});
-		location.replace("http://localhost:3000/results");
+		//console.log("after $ajax call");
+		
+		//window.location.replace("https://ic-call4code.mybluemix.net/");
+		window.location.replace("/results");
 	}	
 
 	function onUpload(){
@@ -52,7 +64,7 @@
   			}
 		}
 		var userID = ts + "-" + ages[i].value + "-" + locs[i].value
-		alert(userID)
+		alert("****** Please write this reference ID down *******\n\n" + userID)
  		//upload(userID, JSON.stringify(profile) );
  		upload(userID, ageGroup, location, profile );
 		
