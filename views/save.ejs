@@ -15,11 +15,11 @@
 </script>
 
 <script>
-	function upload(userID, profile) {
+	function upload(userID, ageGroup, location, profile) {
 		$.ajax({
      		type: 'POST',
      		dataType: 'json',
-     		data: JSON.stringify({userID, profile}),  
+     		data: JSON.stringify({userID, ageGroup, location, profile}),  
      		contentType: 'application/json',
      		url: '/upload'
 		});
@@ -33,7 +33,8 @@
   			if (ages[i].checked) {
     			// do whatever you want with the checked radio
     			//alert(ages[i].value);
-    			console.log(ages[i].value)
+    			var ageGroup = ages[i].value
+    			console.log(ageGroup)
     			// only one radio can be logically checked, don't check the rest
     			break;
   			}
@@ -43,7 +44,8 @@
   			if (locs[i].checked) {
     			// do whatever you want with the checked radio
     			//alert(locs[i].value);
-    			console.log(locs[i].value)
+    			var location = locs[i].value
+    			console.log(location)
     			// only one radio can be logically checked, don't check the rest
     			break;
   			}
@@ -51,7 +53,7 @@
 		var userID = ts + "-" + ages[i].value + "-" + locs[i].value
 		alert(userID)
  		//upload(userID, JSON.stringify(profile) );
- 		upload(userID, profile );
+ 		upload(userID, ageGroup, location, profile );
 		
 	}
 </script>

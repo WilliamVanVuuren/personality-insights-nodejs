@@ -32,9 +32,9 @@ require('./config/error-handler')(app);
 const { log } = require('./config/logger');
 
 // db
-const { db } = require('./config/db');
+//const { db } = require('./config/db');
 
-//app.use(express.bodyParser());
+/*
 
 app.post('/upload', function (req, res) {
        console.log(req.body);
@@ -42,8 +42,9 @@ app.post('/upload', function (req, res) {
        console.log(req.body.userID);
        console.log(req.body.profile);
 });
+*/
 
-const Cloudant = require('@cloudant/cloudant');
-const config = require('config');
+//const Cloudant = require('@cloudant/cloudant');
+//const config = require('config');
 
 module.exports = app;

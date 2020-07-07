@@ -4,11 +4,33 @@
 
 // Third Party
 const Cloudant = require('@cloudant/cloudant');
-const config = require('config');
+//const config = require('config');
 
 // Local
 const { log } = require('./logger');
 
+const path = require('path');
+// load default variables for testing
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
+
+if (!process.env.DATABASE_IAM_APIKEY) {
+  return;
+} else{
+	var iamApiKey = process.env.DATABASE_IAM_APIKEY
+	console.log("******** db key: " + iamApiKey)
+}
+if (!process.env.DATABASE_IAM_USERNAME) {
+  return;
+} else{
+	var account = process.env.DATABASE_IAM_USERNAME
+	console.log("******** db account: " + account)
+}
+if (!process.env.DATABASE_NAME) {
+  return;
+} else{
+	var dbName = process.env.DATABASE_NAME
+	console.log("******** db DATABASE_NAME: " + dbName)
+}
 console.log("****   Loading db from config ...")
 
 // Implementation //////////////////////////////////////////////////////////////
@@ -17,16 +39,19 @@ class UsageDB {
 
   constructor() {
     this.client = new Cloudant({
-      account: config.get('database.iam_username'),
+      //account: config.get('database.iam_username'),
+      account: account,
       plugins: {
         iamauth: {
-          iamApiKey: config.get('database.iam_apikey'),
+          //iamApiKey: config.get('database.iam_apikey'),
+          iamApiKey: iamApiKey,
         },
       },
     });
 
     // Hang onto a promise that functions can await to ensure that the db exists
-    this.dbName = config.get('database.db_name');
+    //this.dbName = config.get('database.db_name');
+    this.dbName = dbName;
     this.dbReady = new Promise((resolve, reject) => {
       this.client.db.list((err, res) => {
         if (err) {
@@ -45,7 +70,7 @@ class UsageDB {
   }
 
   //async addUsage(userName, channelName, textLength) {
-  async addUsage(userID, profile) {
+  async addUsage(userID, ageGroup, location, profile) {
     console.log("adding profile ***************")
     //log.debug(`Adding usage for ${userName} in channel ${channelName}`);
 	log.debug(`Adding profile for ${userID}`);
@@ -56,7 +81,7 @@ class UsageDB {
     // Index the record by the username
     //const recordId = userName;
     const recordId = userID;
-    const status = "active";
+    const status = "active";   //??? const or var
 
     // Look up to see if this user has an existing record
     let queryResults;
@@ -100,6 +125,8 @@ class UsageDB {
       profile: profile,
       status: status,
       user_id: userID,
+      ageGroup: ageGroup,
+      location: location,
       date: new Date(),
     });
 
@@ -108,17 +135,19 @@ class UsageDB {
   }
 }
 
+/*
 class DisabledDB {
   addUsage(userName, channelName, textLength) {
     return Promise.resolve();
   }
 }
+*/
 
 // Exports /////////////////////////////////////////////////////////////////////
 
-// module.exports.db = new UsageDB();
+ module.exports.db = new UsageDB();
  
-
+/*
 if (config.get('database.enabled')) {
   console.log("**** Running with usage logging ENABLED")
   console.log("with db: " + config.get('database.db_name') )
@@ -131,4 +160,4 @@ if (config.get('database.enabled')) {
   log.info('Running with usage logging DISABLED');
   module.exports.db = new DisabledDB();
 }
-
+*/
