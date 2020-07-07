@@ -97,7 +97,13 @@ module.exports = (app) => {
        //const doc = {_id:req.body.userID ,  profile: req.body.profile  }
        
        db.addUsage(req.body.userID, req.body.ageGroup, req.body.location, req.body.profile);
+         // Redirect
+       
+       res.render('results' , {} );
   });
   // terms of use
   app.get('/terms-of-use', (req, res) => res.render('terms-of-use'));
+  
+  //upload
+  app.get('/results', (req, res) => res.render('results'));
 };

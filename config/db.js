@@ -6,6 +6,9 @@
 const Cloudant = require('@cloudant/cloudant');
 //const config = require('config');
 
+// UUID creation
+const uuidv4 = require('uuid/v4');
+
 // Local
 const { log } = require('./logger');
 
@@ -112,16 +115,23 @@ class UsageDB {
       record = queryResults.docs[0];
     }
     if (!record.requests) {
-      log.warning(`Missing "requests" key in record for ${recordId}`);
+      //log.warning(`Missing "requests" key in record for ${recordId}`);
+      log.error(`Missing "requests" key in record for ${recordId}`);
       record.requests = [];
     }
-
+    
+	
 	console.log("writing  profile ***************")
+	let itemId = uuidv4();
+	
+	
     // Add this request to the record
     record.requests.push({
       //user_name: userName,
       //channel_name: channelName,
       //text_length: textLength,
+      _id: itemId,
+      id: itemId,
       profile: profile,
       status: status,
       user_id: userID,
@@ -129,11 +139,29 @@ class UsageDB {
       location: location,
       date: new Date(),
     });
+    
+    
+  	let whenCreated = Date.now();
+    let item = {
+            //_id: itemId,
+            //id: itemId,
+            _id: userID,
+            id: userID,
+           	profile: profile,
+      		status: status,
+      		user_id: userID,
+      		ageGroup: ageGroup,
+      		location: location,
+            whenCreated: whenCreated
+        };
 
     // Put the user's records into the database
-    return this.client.db.use(this.dbName).insert(record, recordId);
+    //return this.client.db.use(this.dbName).insert(record, recordId);
+    return this.client.db.use(this.dbName).insert(item, recordId);
   }
 }
+
+
 
 /*
 class DisabledDB {
