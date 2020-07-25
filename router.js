@@ -91,23 +91,25 @@ module.exports = (app) => {
   // upload profile
   app.post('/upload', function (req, res) {
        //console.log(req.body);
-       console.log(req.body.userID);
-       console.log(req.body.location);
+       console.log('1. ***** In upload route userId: ', req.body.userID);
+       //console.log(req.body.location);
        //console.log(req.body.profile);
        //const doc = {_id:req.body.userID ,  profile: req.body.profile  }
        
        db.addUsage(req.body.userID, req.body.ageGroup, req.body.location, req.body.profile);
          // Redirect
-       
-       res.redirect("/results");
+  	   //res.set('Content-Type', 'application/javascript');
+  	   //res.redirect('/results', { userID : req.body.userID });
   });
   // terms of use
   app.get('/terms-of-use', (req, res) => res.render('terms-of-use'));
   
-  //upload
+  //upload get or post
   app.get('/results', (req, res) => {
-    console.log("... during results() ");
-	return res.render('results')
+    //res.render('results', {userID : req.body.userID})
+	res.render('results')
 	//return res.status(200).send('redirect')
   });
+  
+  
 }

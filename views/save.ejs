@@ -23,19 +23,14 @@
      		contentType: 'application/json',
      		url: '/upload',
 			success: function (response) {
-  			//	$parents.html(response).fadeIn();
-  				//console.log("at upload again")
-  				if(response.result == 'redirect') {
-  					//console.log("at upload redirect")
-  					window.location.replace("http://www.ibm.com");
-  					//location.replace("http://localhost:3000/results");
-  				}
 			}
 		});
 		//console.log("after $ajax call");
-		
+		//window.location.replace("/results")
 		//window.location.replace("https://ic-call4code.mybluemix.net/");
-		window.location.replace("/results");
+		//console.log("userID:", userID);
+		//window.location.replace("/results?userID=" + userID););//userID
+		window.location.replace("/results?userID=" + userID);
 	}	
 
 	function onUpload(){
@@ -64,7 +59,7 @@
   			}
 		}
 		var userID = ts + "-" + ages[i].value + "-" + locs[i].value
-		alert("****** Please write this reference ID down *******\n\n" + userID)
+		//alert("****** Please write this reference ID down *******\n\n" + userID)
  		//upload(userID, JSON.stringify(profile) );
  		upload(userID, ageGroup, location, profile );
 		
@@ -126,7 +121,7 @@
     t.style.backgroundColor = 'lightgray';
   </script>
  
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>

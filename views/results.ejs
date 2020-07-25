@@ -1,8 +1,41 @@
 <$ include partials/header $>
 
 
-upload results go here
+
+   <br>
+      
+      <p class="base--p">
+        <a class="base--a" href='/'>
+           &lt; <$= __("save-back") $>
+        </a>
+      </p>
+
+
+</p>
+</p>
+</br>
+<h3>Please click button to reveal your user ID: <input type='text' id='userID' value='' size='30'/> </h2>
+
+   <br>
+   <br>
+        <button onclick='getUserID()'> show userID</button>
+      <br>
+      
+      <p class="base--p">
+        <a class="base--a" href='/'>
+           &lt; <$= __("save-back") $>
+        </a>
+      </p>
   
+<script type="text/javascript" src="js/save.js"></script>
+ <script>
+   function getUserID() {
+    const queryString = window.location.search;
+    var userID = location.search.split('userID=')[1]
+	console.log('in resultsEJS2 page with:userID::', userID);
+	document.getElementById("userID").value = userID;
+   }
+  </script>
   
 </body>
 </html>

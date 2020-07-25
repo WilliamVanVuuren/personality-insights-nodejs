@@ -76,7 +76,7 @@ class UsageDB {
   async addUsage(userID, ageGroup, location, profile) {
     console.log("adding profile ***************")
     //log.debug(`Adding usage for ${userName} in channel ${channelName}`);
-	log.debug(`Adding profile for ${userID}`);
+	//log.debug(`Adding profile for ${userID}`);
 	
     // Make sure the database is ready
     await this.dbReady;
@@ -121,7 +121,7 @@ class UsageDB {
     }
     
 	
-	console.log("writing  profile ***************")
+	//console.log("writing  profile ***************")
 	let itemId = uuidv4();
 	
 	
