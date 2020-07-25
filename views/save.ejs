@@ -1,5 +1,10 @@
 <$ include partials/header $>
 <script>
+	window.onload = function() {
+  		document.getElementById('student_div').style.display = 'none';
+	};
+</script>
+<script>
 	function download(content, fileName, contentType) {
 		  const a = document.createElement("a");
 		  const file = new Blob([content], { type: contentType });
@@ -36,11 +41,11 @@
 	function onUpload(){
 		var ages = document.getElementsByName('age');
 		var ts = Math.round((new Date()).getTime() / 1000);
-		//alert(ts);
+		alert(ts);
 		for (var i = 0, length = ages.length; i < length; i++) {
   			if (ages[i].checked) {
     			// do whatever you want with the checked radio
-    			//alert(ages[i].value);
+    			alert(ages[i].value);
     			var ageGroup = ages[i].value
     			console.log(ageGroup)
     			// only one radio can be logically checked, don't check the rest
@@ -51,20 +56,62 @@
 		for (var i = 0, length = locs.length; i < length; i++) {
   			if (locs[i].checked) {
     			// do whatever you want with the checked radio
-    			//alert(locs[i].value);
+    			alert(locs[i].value);
     			var location = locs[i].value
     			console.log(location)
     			// only one radio can be logically checked, don't check the rest
     			break;
   			}
 		}
-		var userID = ts + "-" + ages[i].value + "-" + locs[i].value
+		//var userID = ts + "-" + ages[i].value + "-" + locs[i].value
+		var userID = ts +  "-" + locs[i].value
 		//alert("****** Please write this reference ID down *******\n\n" + userID)
  		//upload(userID, JSON.stringify(profile) );
  		upload(userID, ageGroup, location, profile );
 		
 	}
+	
+	function showValues(){
+	 var radioButtons = document.getElementsByName("age");
+	 var x = document.getElementById("student_div");
+     var y = document.getElementById("adult_div");
+     
+    	for(var i = 0; i < radioButtons.length; i++)
+    	{
+        	if(radioButtons[i].checked == true)
+        	{
+            	//console.log("value: ", radioButtons[i].value)
+            	if(radioButtons[i].value =='student') {
+            		console.log('student schools are')
+            		x.style.display = "block"
+            		y.style.display = "none"
+            	}else {
+            		console.log('adult centers are')
+            		y.style.display = "block"
+            		x.style.display = "none"
+            	}
+        	}
+    	}
+	}
 </script>
+<style>
+#adult_div {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightgray;
+  margin-top: 20px;
+}
+</style>
+<style>
+#student_div {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightyellow;
+  margin-top: 20px;
+}
+</style>
   <div class="_demo--container">
     <div class="_content input">
       <h2 class="base--h2">
@@ -75,25 +122,31 @@
         <button onclick='onUpload()'> Upload profile to DB </button>
   		<p>
   		<label for="age">Select: </label></br>
-  		<div>
-  			<input type="radio" id="adult" name="age" value="adult" checked>
+  		<div >
+  			<input type="radio" onclick="showValues()" id="adult" name="age" value="adult" >
   			<label for="adult">Adult</label>
 		</div>
-		<div>
-  			<input type="radio" id="student" name="age" value="student">
+		<div >
+  			<input type="radio" onclick="showValues()" id="student" name="age" value="student">
   			<label for="student">Student</label>
 		</div>
    	   </p>
    	   
    	   <p>
   		<label for="age">Select location: </label></br>
-  		<div>
-  			<input type="radio" id="center_1" name="location" value="center_1" checked>
+  		<div id="adult_div">
+  			<input type="radio" id="center_1" name="location" value="center_1" >
   			<label for="center_1">Adult Center 1</label>
+  			</br>
+  			<input type="radio" id="center_2" name="location" value="center_2">
+  			<label for="center_1">Adult Center 2</label>
 		</div>
-		<div>
+		<div id="student_div">
   			<input type="radio" id="HS_1" name="location" value="HS_1">
   			<label for="HS_1">High School 1</label>
+  			</br>
+  			<input type="radio" id="HS_2" name="location" value="HS_2">
+  			<label for="HS_1">High School 2</label>
 		</div>
    	   </p>
     
